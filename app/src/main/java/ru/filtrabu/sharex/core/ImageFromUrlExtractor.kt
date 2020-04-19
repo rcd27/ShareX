@@ -9,9 +9,19 @@ object ImageFromUrlExtractor {
      * Accepts a HTML, and extracts all images contained in it,
      * returning their URLs
      */
-    fun extract(inputHTML: String): List<String> {
+    fun extractJPG(inputHTML: String): List<String> {
         val parseResult: Document = parse(inputHTML)
-        // TODO: implement
-        return emptyList()
+
+        // TODO: try getElementsByAttributeValueContains
+        val filterJpgReferences = parseResult.getElementsByAttribute("href")
+            .eachAttr("href")
+            .filter { it.contains("jpg") }
+
+        val filterJpgSources =
+            parseResult.getElementsByTag("img")
+                .eachAttr("src")
+                .filter { it.contains("jpg") }
+
+        return filterJpgReferences + filterJpgSources
     }
 }
