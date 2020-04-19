@@ -1,5 +1,6 @@
 package ru.filtrabu.sharex.core
 
+import arrow.core.Nel
 import arrow.core.NonEmptyList
 import arrow.core.Option
 import org.jsoup.Jsoup.parse
@@ -28,7 +29,6 @@ object ImageFromUrlExtractor {
                 .eachAttr("src")
                 .filter(jpegFilter)
 
-        val jpegs = filterJpgReferences + filterJpgSources
-        return arrow.core.Nel.fromList(jpegs)
+        return Nel.fromList(filterJpgReferences + filterJpgSources)
     }
 }

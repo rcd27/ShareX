@@ -4,13 +4,12 @@ import arrow.core.NonEmptyList
 import arrow.core.None
 import arrow.core.Option
 import arrow.core.Some
-import com.google.common.truth.Truth
 import com.google.common.truth.Truth.assertThat
-import org.junit.Test
-import ru.filtrabu.sharex.core.ImageFromUrlExtractor.extractJPG
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.stream.Collectors
+import org.junit.Test
+import ru.filtrabu.sharex.core.ImageFromUrlExtractor.extractJPG
 
 class ImageFromUrlExtractorTest {
 
@@ -34,7 +33,7 @@ class ImageFromUrlExtractorTest {
                 assertThat(extractedResult.t.all).containsExactlyElementsIn(expectedImageUrlList)
             }
             is None -> {
-                Truth.assertWithMessage("Result list must no be empty")
+                throw IllegalArgumentException("Extracted list must not be empty")
             }
         }
     }
