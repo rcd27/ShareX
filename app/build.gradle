@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jlleitschuh.gradle.ktlint'
 
 android {
     compileSdkVersion 29
@@ -23,6 +24,24 @@ android {
         }
     }
 
+}
+
+// Run Ktlint before every build
+tasks.register("ktlint") {
+    exec {
+        println "Running Ktlint auto-formatting tool"
+        executable("../gradlew")
+        args(["ktlintFormat"])
+    }
+}
+tasks.getByName("preBuild") {
+    dependsOn("ktlint")
+}
+ktlint {
+    debug = false
+    verbose = true
+    android = true
+    ignoreFailures = true
 }
 
 dependencies {
