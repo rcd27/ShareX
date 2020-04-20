@@ -2,11 +2,12 @@ package ru.filtrabu.sharex.core
 
 import arrow.core.Nel
 import arrow.core.NonEmptyList
+import arrow.core.None
 import arrow.core.Option
 import org.jsoup.Jsoup.parse
 import org.jsoup.nodes.Document
 
-object ImageFromUrlExtractor {
+object HTMLContentExtractor {
 
     /**
      * Accepts a HTML, and extracts all JPG files contained in it,
@@ -30,5 +31,11 @@ object ImageFromUrlExtractor {
                 .filter(jpegFilter)
 
         return Nel.fromList(filterJpgReferences + filterJpgSources)
+    }
+
+    fun extractGIF(inputHTML: String): Option<NonEmptyList<String>> {
+        val parsedHtmlDocument: Document = parse(inputHTML)
+
+        return None
     }
 }

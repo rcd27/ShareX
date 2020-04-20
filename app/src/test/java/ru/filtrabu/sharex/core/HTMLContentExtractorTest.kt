@@ -8,13 +8,17 @@ import com.google.common.truth.Truth.assertThat
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.stream.Collectors
+import org.http4k.client.DualSyncAsyncHttpHandler
+import org.http4k.client.OkHttp
+import org.http4k.core.Method
+import org.http4k.core.Request
 import org.junit.Test
-import ru.filtrabu.sharex.core.ImageFromUrlExtractor.extractJPG
+import ru.filtrabu.sharex.core.HTMLContentExtractor.extractJPG
 
-class ImageFromUrlExtractorTest {
+class HTMLContentExtractorTest {
 
     @Test
-    fun extract() {
+    fun `JPEG extracting test`() {
         val testHtml: String =
             Files.lines(Paths.get("../dataset/vk-wall-post/photo-98877741_457248805.html"))
                 .collect(Collectors.joining())
@@ -34,6 +38,24 @@ class ImageFromUrlExtractorTest {
             }
             is None -> {
                 throw IllegalArgumentException("Extracted list must not be empty")
+            }
+        }
+    }
+
+    @Test
+    fun `GIF extracting test`() {
+        val urlToPikabuPostWithGIF = "https://pikabu.ru/story/posadka_derevev_7381394"
+        val request = Request(Method.GET, urlToPikabuPostWithGIF)
+        val httpHandler: DualSyncAsyncHttpHandler = OkHttp.invoke()
+        val html = httpHandler.invoke(request).body.toString()
+
+        when (val result: Option<NonEmptyList<String>> = HTMLContentExtractor.extractGIF(html)) {
+            is Some -> {
+                val expected = listOf("")
+                assertThat(result.t.all).containsExactlyElementsIn(expected)
+            }
+            is None -> {
+                throw IllegalArgumentException("Extracted list must be present")
             }
         }
     }
