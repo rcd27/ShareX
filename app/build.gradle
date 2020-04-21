@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "ru.filtrabu.sharex"
-        minSdkVersion 24
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -50,9 +50,12 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.2.0'
 
+    // Reactive Streams <3
+    implementation'io.reactivex.rxjava2:rxjava:2.2.19'
+
     // FIXME: minSdk for using this lib is 24!
     // HTTP Client
-    implementation "org.http4k:http4k-client-okhttp:3.244.0"
+    testImplementation "org.http4k:http4k-client-okhttp:3.244.0"
 
     // Arrow
     implementation "io.arrow-kt:arrow-fx:0.10.5"
