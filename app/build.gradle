@@ -65,7 +65,15 @@ dependencies {
     // Jsoup HTML parser
     implementation 'org.jsoup:jsoup:1.13.1'
 
-    testImplementation 'junit:junit:4.12'
+    // RecyclerView extensions
+    implementation 'com.hannesdorfmann:adapterdelegates4:4.2.0'
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.2.0'
+    implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:4.2.0'
+
+    // Load images
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    testImplementation 'junit:junit:4.13'
     testImplementation 'com.google.truth:truth:1.0.1'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
