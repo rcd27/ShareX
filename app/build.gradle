@@ -51,7 +51,20 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.2.0'
 
     // Reactive Streams <3
-    implementation'io.reactivex.rxjava2:rxjava:2.2.19'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
+
+    // Rx-Lifecycle
+    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.2'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.2'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.2'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle-kotlin:2.2.2'
+
+    // Logging
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment:2.3.0-alpha06'
 
     // FIXME: minSdk for using this lib is 24!
     // HTTP Client

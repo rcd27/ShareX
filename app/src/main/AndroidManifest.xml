@@ -2,6 +2,7 @@
     package="ru.filtrabu.sharex">
 
     <application
+        android:name=".main.App"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
