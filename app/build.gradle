@@ -53,13 +53,6 @@ dependencies {
     // Reactive Streams <3
     implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
 
-    // Rx-Lifecycle
-    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.2'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.2'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-kotlin:2.2.2'
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle-kotlin:2.2.2'
-
     // Logging
     implementation "com.jakewharton.timber:timber:4.7.1"
 
