@@ -1,15 +1,15 @@
 package ru.filtrabu.sharex.main.ui
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
+import androidx.fragment.app.FragmentActivity
 import io.reactivex.subjects.BehaviorSubject
 import ru.filtrabu.sharex.R
 
-class MainActivity : Activity() {
+class MainActivity : FragmentActivity() {
 
     // TODO: test (maybe BehaviorRelay is better)
     private val intentSubject: BehaviorSubject<Intent> = BehaviorSubject.create()
